@@ -20,7 +20,6 @@ camera.zoom = 0.85;
 camera.position.setZ(50);
 
 camera.updateProjectionMatrix();
-// const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
   
@@ -33,21 +32,26 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 const glassMaterial = new THREE.MeshPhysicalMaterial({
   color: 0xffffff,
   transmission: 1,   // Fully transmissive
-  thickness: `1`,    // Glass thickness
-  roughness: 0.0,      // Smooth surface
-  ior: 1.5,          // Index of refraction for glass
+  thickness: 0.4,    // Glass thickness
+  roughness: 0.2,      // Smooth surface
+  ior: 2,          // Index of refraction for glass
   attenuationDistance: 2,
   attenuationColor: 0xffffff,
 });
 const flatMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-var model;
-var rings;
+let model;
+let rings;
+let sring,mring,lring;
 const loader = new GLTFLoader();
 loader.load( 'public/rings.glb', function ( gltf ) {
   model = gltf.scene;
+  sring = model.getObjectByName('path4');
+  mring = model.getObjectByName('path1');
+  lring = model.getObjectByName('path2');
   model.rotateY((Math.PI / 2)); 
-  model.position.y = -4;
+  model.position.y = -4.5;
   model.position.x = 2;
+  model.rotateY(-Math.PI / 12);
   model.traverse( ( child ) => {
     if ( child.isMesh && child.name === 'path378' ) {
       console.log(child.name);
@@ -67,11 +71,15 @@ loader.load( 'public/rings.glb', function ( gltf ) {
 const light = new THREE.AmbientLight(0xffffff);
 const controls = new OrbitControls(camera, renderer.domElement);
 scene.add(light);
-scene.background = new THREE.Color(0x121212);
+scene.background = new THREE.Color(0xaaaaaa);
+
 function animate(){
   requestAnimationFrame(animate)
   renderer.render(scene, camera);
   controls.update();
+  sring.rotateY(0.01);
+  mring.rotateY(0.01);
+  lring.rotateY(-0.01);
 
 }
 animate();
