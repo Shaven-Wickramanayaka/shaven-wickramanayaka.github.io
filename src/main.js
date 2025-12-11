@@ -38,14 +38,15 @@ const glassMaterial = new THREE.MeshPhysicalMaterial({
   attenuationDistance: 2,
   attenuationColor: 0xffffff,
 });
-const flatMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+const flatMaterial = new THREE.MeshStandardMaterial({ color: 0x01E5C00 });
 let model;
 let rings;
 let sring,mring,lring;
 const loader = new GLTFLoader();
-loader.load( 'public/rings.glb', function ( gltf ) {
+loader.load( '/rings.glb', function ( gltf ) {
   model = gltf.scene;
   sring = model.getObjectByName('path4');
+  sring.material = flatMaterial;
   mring = model.getObjectByName('path1');
   lring = model.getObjectByName('path2');
   model.rotateY((Math.PI / 2)); 
