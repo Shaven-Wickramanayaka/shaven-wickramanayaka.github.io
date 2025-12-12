@@ -47,7 +47,7 @@ const glassMaterial = new THREE.MeshPhysicalMaterial({
 const flatMaterial = new THREE.MeshStandardMaterial(
   {
   color: 0x01E5C00,
-  emissive: 0xffffaa,    // Glow color
+  emissive: 0xffff88,    // Glow color
   emissiveIntensity: 1,  // Glow strength
 
 });
