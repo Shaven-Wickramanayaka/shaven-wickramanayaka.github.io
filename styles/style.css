@@ -8,6 +8,7 @@ canvas {
 main {
   position: absolute;
   z-index: 1;
+  font-family: "Montserrat", sans-serif;
 }
 
 nav {
@@ -35,4 +36,12 @@ section {
 #hero .text-wrapper {
   width: 50%;
   margin: 1.6rem;
+}
+#hero .text-wrapper h1 {
+  font-family: "Cairo Play", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  font-size: 3rem;
 }/*# sourceMappingURL=style.css.map */

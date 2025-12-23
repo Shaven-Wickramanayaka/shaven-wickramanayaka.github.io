@@ -24,11 +24,11 @@ camera.position.setZ(50);
 camera.updateProjectionMatrix();
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
+  antialias: true,
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.antialias = true;
 // camera.lookAt(0, 0, 0);
 const textureLoader = new THREE.TextureLoader();
 
@@ -91,7 +91,7 @@ function moveCamera() {
   const t = window.scrollY;
   // camera.position.z = t * -0.01;
   // camera.position.x = t * -0.0002;
-  camera.position.y = t * -0.04;
+  camera.position.y = t * -0.03;
 }
 document.body.onscroll = moveCamera;
 
