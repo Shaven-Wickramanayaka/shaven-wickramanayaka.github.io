@@ -35,9 +35,9 @@ const textureLoader = new THREE.TextureLoader();
 const glassMaterial = new THREE.MeshPhysicalMaterial({
   color: 0xffffff,
   transmission: 1, // Fully transmissive
-  thickness: 0.1, // Glass thickness
-  roughness: 0.4, // Smooth surface
-  ior: 1.5, // Index of refraction for glass
+  thickness: 0.5, // Glass thickness
+  roughness: 0.2, // Smooth surface
+  ior: 2, // Index of refraction for glass
   attenuationDistance: 2,
   attenuationColor: 0xffffff,
 });
@@ -63,7 +63,7 @@ loader.load(
     model.rotateY(Math.PI / 2);
     model.position.y = -4.5;
     model.position.x = 2;
-    model.rotateY(-Math.PI / 12);
+    // model.rotateY(-Math.PI / 12);
     model.traverse((child) => {
       if (child.isMesh && child.name === "path378") {
         console.log(child.name);
