@@ -79,22 +79,19 @@ loader.load(
   }
 );
 
-const controls = new OrbitControls(camera, renderer.domElement);
-
 scene.background = new THREE.Color(0x121212);
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
-  controls.update();
   sring.rotateY(0.01);
   mring.rotateY(0.01);
   lring.rotateY(-0.01);
 }
 function moveCamera() {
-  const t = document.body.getBoundingClientRect().top;
-  camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
-  camera.position.y = t * -0.0002 - 1;
+  const t = window.scrollY;
+  // camera.position.z = t * -0.01;
+  // camera.position.x = t * -0.0002;
+  camera.position.y = t * -0.04;
 }
 document.body.onscroll = moveCamera;
 
