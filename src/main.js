@@ -78,6 +78,15 @@ loader.load(
     console.error(error);
   }
 );
+const squareGeo = new THREE.BoxGeometry(4, 4, 4);
+const squareMat = new THREE.MeshStandardMaterial({
+  color: 0x01e5c00,
+});
+const star = new THREE.Mesh(squareGeo, squareMat);
+star.rotateY(Math.PI / 2);
+star.position.y = -19;
+star.position.x = 0;
+scene.add(star);
 // function addStar() {
 //   const starGeo = new THREE.SphereGeometry(0.25);
 //   const starMat = new THREE.MeshStandardMaterial({
@@ -101,12 +110,14 @@ function animate() {
   sring.rotateY(0.01);
   mring.rotateY(0.01);
   lring.rotateY(-0.01);
+  star.rotation.x += 0.01;
+  star.rotation.y += 0.005;
+  star.rotation.z += 0.01;
 }
 function moveCamera() {
   const t = window.scrollY;
-  // camera.position.z = t * -0.01;
-  // camera.position.x = t * -0.0002;
-  camera.position.y = t * -0.03;
+
+  camera.position.y = t * -0.028;
 }
 document.body.onscroll = moveCamera;
 

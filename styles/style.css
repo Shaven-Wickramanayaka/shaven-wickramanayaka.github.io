@@ -57,6 +57,7 @@ section {
 .intro-text {
   color: antiquewhite;
   font-size: 2rem;
+  padding: 2rem;
 }
 
 .intro-images img {
