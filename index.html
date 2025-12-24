@@ -55,16 +55,30 @@
         >
           <ul class="navbar-nav me-auto my-2 my-lg-0 justify-content-center">
             <li class="nav-item me-4">
-              <a class="nav-link" href="/"><h3>Home</h3></a>
+              <a class="nav-link magic-hover magic-hover__square" href="/"
+                ><h3>Home</h3></a
+              >
             </li>
             <li class="nav-item me-4">
-              <a class="nav-link" href="/about.html"><h3>About</h3></a>
+              <a
+                class="nav-link magic-hover magic-hover__square"
+                href="/about.html"
+                ><h3>About</h3></a
+              >
             </li>
             <li class="nav-item me-4">
-              <a class="nav-link" href="/projects.html"><h3>Projects</h3></a>
+              <a
+                class="nav-link magic-hover magic-hover__square"
+                href="/projects.html"
+                ><h3>Projects</h3></a
+              >
             </li>
             <li class="nav-item me-4">
-              <a class="nav-link" href="/contact.html"><h3>Contact</h3></a>
+              <a
+                class="nav-link magic-hover magic-hover__square"
+                href="/contact.html"
+                ><h3>Contact</h3></a
+              >
             </li>
           </ul>
         </div>
@@ -93,12 +107,23 @@
           </p>
         </div>
       </section>
-      <section>
-        <h2>Currently....</h2>
-        <ul>
-          <li>Learning Web Development</li>
-        </ul>
-      </section>
+      <section></section>
     </main>
   </body>
+
+  <script
+    type="text/javascript"
+    src="https://res.cloudinary.com/veseylab/raw/upload/v1684982764/magicmouse-2.0.0.cdn.min.js"
+  ></script>
+  <script type="text/javascript">
+    options = {
+      cursorOuter: "circle",
+      hoverEffect: "circle-move",
+      hoverItemMove: false,
+      defaultCursor: false,
+      outerWidth: 30,
+      outerHeight: 30,
+    };
+    magicMouse(options);
+  </script>
 </html>

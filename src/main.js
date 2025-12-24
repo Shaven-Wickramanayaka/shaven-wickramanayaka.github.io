@@ -99,9 +99,8 @@ cube.rotateY(Math.PI / 2);
 cube.position.y = -19;
 cube.position.x = 0;
 scene.add(cube);
-const color = 0xffffff;
-const intensity = 1;
-const light = new THREE.DirectionalLight(color, intensity);
+
+const light = new THREE.DirectionalLight(0xffffff, 2);
 light.position.set(1, -7, 8);
 light.target.position.set(0, -19, 0);
 scene.add(light);
