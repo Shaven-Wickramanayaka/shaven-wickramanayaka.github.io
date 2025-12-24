@@ -15,7 +15,7 @@ const camera = new THREE.OrthographicCamera(
   (frustumSize * aspect) / 2, // right
   frustumSize / 2, // top
   frustumSize / -2, // bottom
-  0.1, // near
+  41, // near
   1000 // far
 );
 camera.zoom = 0.85;
@@ -36,7 +36,7 @@ const glassMaterial = new THREE.MeshPhysicalMaterial({
   color: 0xffffff,
   transmission: 1, // Fully transmissive
   thickness: 0.5, // Glass thickness
-  roughness: 0.2, // Smooth surface
+  roughness: 0.5, // Smooth surface
   ior: 2, // Index of refraction for glass
   attenuationDistance: 2,
   attenuationColor: 0xffffff,
@@ -78,7 +78,22 @@ loader.load(
     console.error(error);
   }
 );
+// function addStar() {
+//   const starGeo = new THREE.SphereGeometry(0.25);
+//   const starMat = new THREE.MeshStandardMaterial({
+//     color: 0x01e5c00,
+//     emissive: 0xffff88, // Glow color
+//     emissiveIntensity: 1, // Glow strength
+//   });
+//   const star = new THREE.Mesh(starGeo, starMat);
 
+//   const [x, y, z] = Array(3)
+//     .fill()
+//     .map(() => THREE.MathUtils.randFloatSpread(200));
+//   star.position.set(x, y, z);
+//   scene.add(star);
+// }
+// Array(400).fill().forEach(addStar);
 scene.background = new THREE.Color(0x121212);
 function animate() {
   requestAnimationFrame(animate);

@@ -24,6 +24,11 @@ section {
   width: 100%;
 }
 
+.text-wrapper {
+  width: 50%;
+  margin: 1.6rem;
+}
+
 #hero {
   height: 90vh;
   display: flex;
@@ -33,15 +38,28 @@ section {
   text-align: left;
   color: white;
 }
-#hero .text-wrapper {
-  width: 50%;
-  margin: 1.6rem;
-}
-#hero .text-wrapper h1 {
+#hero h1 {
   font-family: "Cairo Play", sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
   font-variation-settings: "slnt" 0;
   font-size: 3rem;
+}
+
+#intro div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.intro-text {
+  color: antiquewhite;
+  font-size: 2rem;
+}
+
+.intro-images img {
+  width: 30%;
+  border-radius: 20rem;
 }/*# sourceMappingURL=style.css.map */
