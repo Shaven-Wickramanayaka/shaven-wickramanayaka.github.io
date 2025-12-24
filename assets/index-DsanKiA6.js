@@ -14431,14 +14431,14 @@ xo.setSize(window.innerWidth, window.innerHeight);
 const Ei = new Pc(), k_ = new Qt({ color: 16777215, transmission: 1, thickness: 0.5, roughness: 0.5, ior: 2, attenuationDistance: 2, attenuationColor: 16777215 }), jr = new an({ color: 1989632, emissive: 16777096, emissiveIntensity: 1 });
 let sn, Ya, Ka, ja;
 const G_ = new a_();
-G_.load("/rings.glb", function(s) {
+G_.load("rings.glb", function(s) {
   sn = s.scene, Ya = sn.getObjectByName("path4"), Ya.material = jr, Ka = sn.getObjectByName("path1"), Ka.material = jr, ja = sn.getObjectByName("path2"), ja.material = jr, sn.rotateY(Math.PI / 2), sn.position.y = -4.5, sn.position.x = 2, sn.traverse((e) => {
     e.isMesh && e.name === "path378" && (console.log(e.name), e.material = k_);
   }), sn.scale.set(25, 25, 25), ps.add(sn);
 }, void 0, function(s) {
   console.error(s);
 });
-const H_ = new Oi(4, 4, 4), Vc = [new an({ map: Ei.load("/img1.jpeg") }), new an({ map: Ei.load("/img2.jpeg") }), new an({ map: Ei.load("/img3.jpeg") }), new an({ map: Ei.load("/img1.jpeg") }), new an({ map: Ei.load("/img2.jpeg") }), new an({ map: Ei.load("/img3.jpeg") })];
+const H_ = new Oi(4, 4, 4), Vc = [new an({ map: Ei.load("img1.jpeg") }), new an({ map: Ei.load("img2.jpeg") }), new an({ map: Ei.load("img3.jpeg") }), new an({ map: Ei.load("img1.jpeg") }), new an({ map: Ei.load("img2.jpeg") }), new an({ map: Ei.load("img3.jpeg") })];
 Vc.colorSpace = St;
 const si = new Nt(H_, Vc);
 si.rotateY(Math.PI / 2);
