@@ -44,6 +44,7 @@ const flatMaterial = new THREE.MeshStandardMaterial({
 let model;
 let sring, mring, lring;
 const loader = new GLTFLoader();
+let modelLoaded = false;
 loader.load(
   "/rings.glb",
   function (gltf) {
@@ -109,9 +110,11 @@ scene.background = new THREE.Color(0x121212);
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
-  sring.rotateY(0.01);
-  mring.rotateY(0.01);
-  lring.rotateY(-0.01);
+  if (modelLoaded) {
+    sring.rotateY(0.01);
+    mring.rotateY(0.01);
+    lring.rotateY(-0.01);
+  }
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.005;
   cube.rotation.z += 0.01;
