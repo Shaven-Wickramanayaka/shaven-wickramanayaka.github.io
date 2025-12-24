@@ -2,10 +2,7 @@
 import "./style.css";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+
 const scene = new THREE.Scene();
 // Camera parameters
 const aspect = window.innerWidth / window.innerHeight;
@@ -28,8 +25,6 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-// camera.lookAt(0, 0, 0);
 const textureLoader = new THREE.TextureLoader();
 
 const glassMaterial = new THREE.MeshPhysicalMaterial({
@@ -47,7 +42,6 @@ const flatMaterial = new THREE.MeshStandardMaterial({
   emissiveIntensity: 1, // Glow strength
 });
 let model;
-let rings;
 let sring, mring, lring;
 const loader = new GLTFLoader();
 loader.load(
@@ -79,30 +73,39 @@ loader.load(
   }
 );
 const squareGeo = new THREE.BoxGeometry(4, 4, 4);
-const squareMat = new THREE.MeshStandardMaterial({
-  color: 0x01e5c00,
-});
-const star = new THREE.Mesh(squareGeo, squareMat);
-star.rotateY(Math.PI / 2);
-star.position.y = -19;
-star.position.x = 0;
-scene.add(star);
-// function addStar() {
-//   const starGeo = new THREE.SphereGeometry(0.25);
-//   const starMat = new THREE.MeshStandardMaterial({
-//     color: 0x01e5c00,
-//     emissive: 0xffff88, // Glow color
-//     emissiveIntensity: 1, // Glow strength
-//   });
-//   const star = new THREE.Mesh(starGeo, starMat);
+const cubeTextures = [
+  new THREE.MeshStandardMaterial({
+    map: textureLoader.load("/img1.jpeg"),
+  }),
+  new THREE.MeshStandardMaterial({
+    map: textureLoader.load("/img2.jpeg"),
+  }),
+  new THREE.MeshStandardMaterial({
+    map: textureLoader.load("/img3.jpeg"),
+  }),
+  new THREE.MeshStandardMaterial({
+    map: textureLoader.load("/img1.jpeg"),
+  }),
+  new THREE.MeshStandardMaterial({
+    map: textureLoader.load("/img2.jpeg"),
+  }),
+  new THREE.MeshStandardMaterial({
+    map: textureLoader.load("/img3.jpeg"),
+  }),
+];
+cubeTextures.colorSpace = THREE.SRGBColorSpace;
+const cube = new THREE.Mesh(squareGeo, cubeTextures);
+cube.rotateY(Math.PI / 2);
+cube.position.y = -19;
+cube.position.x = 0;
+scene.add(cube);
+const color = 0xffffff;
+const intensity = 1;
+const light = new THREE.DirectionalLight(color, intensity);
+light.position.set(1, -7, 8);
+light.target.position.set(0, -19, 0);
+scene.add(light);
 
-//   const [x, y, z] = Array(3)
-//     .fill()
-//     .map(() => THREE.MathUtils.randFloatSpread(200));
-//   star.position.set(x, y, z);
-//   scene.add(star);
-// }
-// Array(400).fill().forEach(addStar);
 scene.background = new THREE.Color(0x121212);
 function animate() {
   requestAnimationFrame(animate);
@@ -110,13 +113,12 @@ function animate() {
   sring.rotateY(0.01);
   mring.rotateY(0.01);
   lring.rotateY(-0.01);
-  star.rotation.x += 0.01;
-  star.rotation.y += 0.005;
-  star.rotation.z += 0.01;
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.005;
+  cube.rotation.z += 0.01;
 }
 function moveCamera() {
   const t = window.scrollY;
-
   camera.position.y = t * -0.028;
 }
 document.body.onscroll = moveCamera;
