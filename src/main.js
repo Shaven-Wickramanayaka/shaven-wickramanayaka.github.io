@@ -45,7 +45,7 @@ let model;
 let sring, mring, lring;
 const loader = new GLTFLoader();
 loader.load(
-  "/rings.glb",
+  "rings.glb",
   function (gltf) {
     model = gltf.scene;
     sring = model.getObjectByName("path4");
@@ -75,22 +75,22 @@ loader.load(
 const squareGeo = new THREE.BoxGeometry(4, 4, 4);
 const cubeTextures = [
   new THREE.MeshStandardMaterial({
-    map: textureLoader.load("/img1.jpeg"),
+    map: textureLoader.load("img1.jpeg"),
   }),
   new THREE.MeshStandardMaterial({
-    map: textureLoader.load("/img2.jpeg"),
+    map: textureLoader.load("img2.jpeg"),
   }),
   new THREE.MeshStandardMaterial({
-    map: textureLoader.load("/img3.jpeg"),
+    map: textureLoader.load("img3.jpeg"),
   }),
   new THREE.MeshStandardMaterial({
-    map: textureLoader.load("/img1.jpeg"),
+    map: textureLoader.load("img1.jpeg"),
   }),
   new THREE.MeshStandardMaterial({
-    map: textureLoader.load("/img2.jpeg"),
+    map: textureLoader.load("img2.jpeg"),
   }),
   new THREE.MeshStandardMaterial({
-    map: textureLoader.load("/img3.jpeg"),
+    map: textureLoader.load("img3.jpeg"),
   }),
 ];
 cubeTextures.colorSpace = THREE.SRGBColorSpace;
