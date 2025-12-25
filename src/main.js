@@ -28,8 +28,8 @@ const textureLoader = new THREE.TextureLoader();
 const glassMaterial = new THREE.MeshPhysicalMaterial({
   color: 0xffffff,
   transmission: 1, // Fully transmissive
-  thickness: 0.5, // Glass thickness
-  roughness: 0.5, // Smooth surface
+  thickness: 0.7, // Glass thickness
+  roughness: 0.3, // Smooth surface
   ior: 2, // Index of refraction for glass
   attenuationDistance: 2,
   attenuationColor: 0xffffff,
