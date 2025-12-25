@@ -63,4 +63,40 @@ section {
 .intro-images img {
   width: 30%;
   border-radius: 20rem;
+}
+
+#current {
+  color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+#current .text-wrapper {
+  width: 40%;
+  margin: 1rem;
+}
+#current h1 {
+  text-align: left;
+  padding: 0.3rem;
+}
+#current li {
+  font-size: 2rem;
+}
+
+footer {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .icon-wrapper {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+}
+footer .fa-brands {
+  color: aliceblue;
+  font-size: 3rem;
 }/*# sourceMappingURL=style.css.map */
