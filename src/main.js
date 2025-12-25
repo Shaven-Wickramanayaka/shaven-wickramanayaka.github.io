@@ -1,11 +1,9 @@
 // ? Imports
 import "./style.css";
-// import * as THREE from "three";
 import * as THREE from "../node_modules/three/build/three.module.js";
-import { GLTFLoader } from "../node_modules/three/examples/jsm/GLTFLoader.js";
+import { GLTFLoader } from "../node_modules/three/examples/jsm/loaders/GLTFLoader.js";
 
 const scene = new THREE.Scene();
-// Camera parameters
 const aspect = window.innerWidth / window.innerHeight;
 const frustumSize = 10; // Controls zoom level
 const camera = new THREE.OrthographicCamera(
