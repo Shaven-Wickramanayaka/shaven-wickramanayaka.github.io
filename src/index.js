@@ -15,8 +15,6 @@ const camera = new THREE.OrthographicCamera(
 );
 camera.zoom = 0.85;
 camera.position.setZ(50);
-
-camera.updateProjectionMatrix();
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
   antialias: true,
@@ -39,6 +37,20 @@ const flatMaterial = new THREE.MeshStandardMaterial({
   emissive: 0xffff88, // Glow color
   emissiveIntensity: 1, // Glow strength
 });
+var starsMaterial = new THREE.PointsMaterial({
+  size: 1 / 6,
+  sizeAttenuation: true,
+  transparent: true,
+});
+for (var i = 0; i < 20; i++) {
+  var dome = new THREE.Points(
+    new THREE.IcosahedronGeometry(50, 7),
+    starsMaterial
+  );
+  dome.rotation.set(6 * Math.random(), 6 * Math.random(), 6 * Math.random());
+  scene.add(dome);
+}
+
 let model;
 let sring, mring, lring;
 const loader = new GLTFLoader();
@@ -103,6 +115,12 @@ light.position.set(1, -7, 8);
 light.target.position.set(0, -19, 0);
 scene.add(light);
 
+window.addEventListener("resize", (event) => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+});
 scene.background = new THREE.Color(0x121212);
 function animate() {
   requestAnimationFrame(animate);
