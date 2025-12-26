@@ -38,7 +38,7 @@ const flatMaterial = new THREE.MeshStandardMaterial({
   emissiveIntensity: 1, // Glow strength
 });
 var starsMaterial = new THREE.PointsMaterial({
-  size: 1 / 6,
+  size: 2,
   sizeAttenuation: true,
   transparent: true,
 });
