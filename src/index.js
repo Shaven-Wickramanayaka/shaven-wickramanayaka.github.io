@@ -1,7 +1,7 @@
 // ? Imports
-import "./style.css";
-import * as THREE from "../node_modules/three/build/three.module.js";
-import { GLTFLoader } from "../node_modules/three/examples/jsm/loaders/GLTFLoader.js";
+import "./index.css";
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 const scene = new THREE.Scene();
 const aspect = window.innerWidth / window.innerHeight;
 const frustumSize = 10; // Controls zoom level
